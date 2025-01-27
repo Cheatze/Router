@@ -9,7 +9,9 @@ class BookController
         } else {
             $books = [];
         }
-        //include_once 'html/index.html';
+        include_once 'html/index.html';
     }
+
+    
 
 }

@@ -1,14 +1,26 @@
 <html>
+
 <head>
     <title>Library entrance</title>
 </head>
+
 <body>
     <h1>Library entrance</h1>
     <p><b>Book list</b></p>
     <ul>
-        <li></li>
+        <?php if (empty($books)): ?>
+        <li>There are no books in the array.</li>
+        <?php else: ?>
+        <?php foreach ($books as $key => $book): ?>
+        <li>
+            Id:
+            <?php echo $book->getId(); ?>:
+            <?php echo $book->getTitle(); ?> by:
+            <?php echo $book->getAuthorName(); ?>
+        </li>
+        <?php endforeach; ?>
+        <?php endif; ?>
     </ul>
-    <?php endforeach; ?>
 </body>
 
 </html>
