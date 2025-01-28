@@ -29,7 +29,9 @@ class Router
             [$routeMethod, $routePath, $routeAction] = $route;
             if ($method === $routeMethod && $this->matchRoute($routePath)) {
                 if (isset($this->pathPieces[1])) {
-                    $id = (int) $this->pathPieces[1];
+                    $piece = $this->pathPieces[1]; //$lastLetter = substr($string, -1);
+                    $id = (int) substr($piece, -1); //$this->pathPieces[1];
+                    //$id = 5;
                     $routeAction($id);
                     return;
                 }

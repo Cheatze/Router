@@ -24,7 +24,7 @@ class BookController
         foreach ($books as $book) {
             if ($book->getid() == $id) {
                 //$book = $bookO;
-                include_once 'book.html';
+                include_once 'html/book.html';
                 break;
             }// else { echo $id . "Book not found"; }
         }
