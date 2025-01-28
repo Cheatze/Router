@@ -5,6 +5,7 @@ class Router
 
     //Shouldn't an empty get from index go to the main menu?
     private array $routes = [
+        ['get', 'book/:id', [BookController::class, 'show']],
         ['get', 'index', [BookController::class, 'index']],
     ];
 
@@ -27,7 +28,7 @@ class Router
         foreach ($this->routes as $route) {
             [$routeMethod, $routePath, $routeAction] = $route;
             if ($method === $routeMethod && $this->matchRoute($routePath)) {
-                if (isset($this->pathParts[1])) {
+                if (isset($this->pathPieces[1])) {
                     $id = (int) $this->pathPieces[1];
                     $routeAction($id);
                     return;
@@ -56,9 +57,6 @@ class Router
         }
         return true;
     }
-
-    //$_SERVER['REQUEST_METHOD'] //post or get
-    //$_SERVER['REQUEST_URI'] //like 'index.php'
 
 
 }

@@ -13,10 +13,12 @@
         <?php else: ?>
         <?php foreach ($books as $key => $book): ?>
         <li>
-            Id:
-            <?php echo $book->getId(); ?>:
-            <?php echo $book->getTitle(); ?> by:
-            <?php echo $book->getAuthorName(); ?>
+            <a href="book/id=<?php echo $book->getId(); ?>">
+                Id:
+                <?php echo $book->getId(); ?>:
+                <?php echo $book->getTitle(); ?> by:
+                <?php echo $book->getAuthorName(); ?>
+            </a>
         </li>
         <?php endforeach; ?>
         <?php endif; ?>

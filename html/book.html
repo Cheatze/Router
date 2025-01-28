@@ -1,0 +1,30 @@
+<html>
+
+<head>
+    <title>Book details</title>
+</head>
+
+<body>
+    <div>
+        <h3>
+            <?php echo $book->getTitle(); ?>
+        </h3>
+        <p><strong>Author:</strong>
+            <?php echo $book->getAuthor()->getFirstName() . ' ' . $book->getAuthor()->getLastName(); ?>
+        </p>
+        <p><strong>ISBN:</strong>
+            <?php echo $book->getIsbn(); ?>
+        </p>
+        <p><strong>Publisher:</strong>
+            <?php echo $book->getPublisher(); ?>
+        </p>
+        <p><strong>Publication Date:</strong>
+            <?php echo $book->getPublicationDateAsString(); ?>
+        </p>
+        <p><strong>Page Count:</strong>
+            <?php echo $book->getPagecount(); ?>
+        </p>
+    </div>
+</body>
+
+</html>
