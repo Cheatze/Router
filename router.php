@@ -4,9 +4,12 @@ class Router
 {
 
     //Shouldn't an empty get from index go to the main menu?
+    //Next a delete route 
     private array $routes = [
         ['get', 'book/:id', [BookController::class, 'show']],
         ['get', 'index', [BookController::class, 'index']],
+        ['get', '', [MainController::class, 'menu']],
+        ['post', 'book', [BookController::class, 'delete']],
     ];
 
     private array $pathPieces;
@@ -29,9 +32,11 @@ class Router
             [$routeMethod, $routePath, $routeAction] = $route;
             if ($method === $routeMethod && $this->matchRoute($routePath)) {
                 if (isset($this->pathPieces[1])) {
-                    $piece = $this->pathPieces[1]; //$lastLetter = substr($string, -1);
-                    $id = (int) substr($piece, -1); //$this->pathPieces[1];
-                    //$id = 5;
+                    $string = $this->pathPieces[1];
+                    preg_match('/\d+$/', $string, $matches); // Matches digits at the end of the string
+                    $numbersAtEnd = $matches[0];
+                    //$piece = $this->pathPieces[1]; //$lastLetter = substr($string, -1);
+                    $id = (int) $numbersAtEnd;
                     $routeAction($id);
                     return;
                 }

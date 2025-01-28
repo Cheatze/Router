@@ -25,6 +25,10 @@
             <?php echo $book->getPagecount(); ?>
         </p>
     </div>
+    <form method="POST" action='../book' onsubmit="return confirm('Do you really want to delete this book?')">
+        <input type="hidden" name="id" value="<?php echo $book->getId(); ?>">
+        <input type="submit" value="Delete">
+    </form>
 </body>
 
 </html>

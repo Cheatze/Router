@@ -8,7 +8,8 @@
 class BookRepository
 {
 
-    //Set to $_SESSION['books'];
+    //Replace use of with $_SESSION['books'];
+    //
     private array $books = [];
 
     //Add the given book object to the array
