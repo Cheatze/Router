@@ -67,7 +67,13 @@ class BookController
     {
         // Retrieve form data
         $bookTitle = $_POST['title'];
-        $author = $_POST['author'];
+        //$author = $_POST['author'];
+        foreach ($_SESSION['authors'] as $auth) {
+            if ($auth->getName() == $_POST['author']) {
+                $author = $auth;
+                break;
+            }
+        }
         $isbn = $_POST['isbn'];
         $publisher = $_POST['publisher'];
         $publicationDate = $_POST['publicationDate'];
