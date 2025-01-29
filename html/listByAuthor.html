@@ -1,0 +1,28 @@
+<html>
+
+<head>
+    <title>Library Hall</title>
+</head>
+
+<body>
+    <h1>Library Hall</h1>
+    <p><b>Book list</b></p>
+    <ul>
+        <?php if (empty($books)): ?>
+        <li>There are no books in the array.</li>
+        <?php else: ?>
+        <?php foreach ($books as $key => $book): ?>
+        <li>
+            <a href="../book/id=<?php echo $book->getId(); ?>">
+                Id:
+                <?php echo $book->getId(); ?>:
+                <?php echo $book->getTitle(); ?> by:
+                <?php echo $book->getAuthorName(); ?>
+            </a>
+        </li>
+        <?php endforeach; ?>
+        <?php endif; ?>
+    </ul>
+</body>
+
+</html>

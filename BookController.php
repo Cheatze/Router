@@ -52,4 +52,9 @@ class BookController
         include_once 'html/author.html';
     }
 
+    public static function showByAuthor($id)
+    {
+        $books = BookRepository::filterById($id);
+        include_once 'html/listByAuthor.html';
+    }
 }

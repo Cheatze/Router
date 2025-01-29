@@ -4,13 +4,15 @@ class Router
 {
 
     //Shouldn't an empty get from index go to the main menu?
-    //Next a author/:id route ['get','author/:id',[BookController::class,'showByAuthor']],
+    //Next another route to menu ['get','menu',[BookController::class,'menu']],
     private array $routes = [
         ['get', 'book/:id', [BookController::class, 'show']],
         ['get', 'index', [BookController::class, 'index']],
         ['get', '', [MainController::class, 'menu']],
         ['post', 'book', [BookController::class, 'delete']],
         ['get', 'author', [BookController::class, 'showAuthors']],
+        ['get', 'author/:id', [BookController::class, 'showByAuthor']],
+        ['get', 'menu', [MainController::class, 'menu']],
     ];
 
     private array $pathPieces;

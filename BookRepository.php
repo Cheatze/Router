@@ -24,9 +24,10 @@ class BookRepository
     }
 
     //Filters the books array by author id and returns filtered array
-    public function filterById(int $chosenAuthorId)
+    public static function filterById(int $chosenAuthorId)
     {
-        $filteredBooks = array_filter($this->books, function ($book) use ($chosenAuthorId) {
+        $books = $_SESSION['books'];
+        $filteredBooks = array_filter($books, function ($book) use ($chosenAuthorId) {
             return $book->getAuthor()->getId() === $chosenAuthorId;
         });
         return $filteredBooks;
