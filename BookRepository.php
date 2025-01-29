@@ -13,14 +13,16 @@ class BookRepository
     private array $books = [];
 
     //Add the given book object to the array
-    public function add(object $newBook)
+    public static function add(object $newBook)
     {
-        $this->books[] = $newBook;
+        //$this->books[] = $newBook;
+        $_SESSION['books'][] = $newBook;
     }
 
-    public function getAll()
+    public static function getAll()
     {
-        return $this->books;
+        $books = $_SESSION['books'];
+        return $books;
     }
 
     //Filters the books array by author id and returns filtered array
@@ -34,9 +36,10 @@ class BookRepository
     }
 
     //Returns a book with a certain id
-    public function returnById(int $id)
+    public static function returnById(int $id)
     {
-        foreach ($this->books as $book) {
+        $books = $_SESSION['books'];
+        foreach ($books as $book) {
             if ($book->getid() == $id) {
                 return $book;
             }

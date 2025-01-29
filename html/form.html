@@ -11,7 +11,17 @@
         <input type="text" id="title" name="title" required><br><br>
 
         <label for="author">Author:</label>
-        <input type="text" id="author" name="author" required><br><br>
+        <select id="author" name="author" required>
+            <?php
+                            
+                            if (isset($_SESSION['authors'])) {
+                                foreach ($_SESSION['authors'] as $author) {
+                                    echo '<option value="' . htmlspecialchars($author->getName()) . '">' . htmlspecialchars($author->getName()) . '</option>';
+                                }
+                            }
+                            ?>
+        </select><br><br>
+
 
         <label for="isbn">ISBN:</label>
         <input type="text" id="isbn" name="isbn" required><br><br>
