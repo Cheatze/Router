@@ -5,6 +5,8 @@ $authors[] = new Author('Stephen', 'King', new DateTimeImmutable('1947-09-21'));
 $authors[] = new Author('Dan', 'Brown', new DateTimeImmutable('1964-06-22'));
 $authors[] = new Author('Bobby', '', new DateTimeImmutable('1970-01-01'));
 
+$_SESSION['authors'] = $authors;
+
 foreach ($authors as $author) {
     // Create two new Book instances for each author
     for ($i = 1; $i <= 2; $i++) {

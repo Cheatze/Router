@@ -1,0 +1,24 @@
+<html lang="en">
+
+<head>
+    <title>Authors</title>
+</head>
+
+<body>
+    <h1>Choose an author</h1>
+    <ul>
+        <?php if (empty($authors)): ?>
+        <li>There are no authors in the array.</li>
+        <?php else: ?>
+        <?php foreach ($authors as $key => $author): ?>
+        <li>
+            <a href="author/id=<?php echo $author->getId(); ?>">
+                <?php echo $author->getName(); ?>
+            </a>
+        </li>
+        <?php endforeach; ?>
+        <?php endif; ?>
+    </ul>
+</body>
+
+</html>

@@ -46,4 +46,10 @@ class BookController
         }
     }
 
+    public static function showAuthors()
+    {
+        $authors = $_SESSION['authors'];
+        include_once 'html/author.html';
+    }
+
 }
