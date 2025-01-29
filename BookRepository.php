@@ -47,13 +47,13 @@ class BookRepository
     }
 
     //Removes a book with a certain index make static
-    public function removeById(int $id)
+    public static function removeById(int $id)
     {
-        foreach ($this->books as $index => $book) {
+        $books = $_SESSION['books'];
+        foreach ($books as $index => $book) {
             if ($book->getId() === $id) {
                 // Remove the object at this index
-                unset($this->books[$index]);//replace with session unset
-
+                unset($_SESSION['books'][$index]);
                 break; // Exit loop since we found what we needed
             }
         }

@@ -14,36 +14,16 @@ class BookController
 
     public static function show(int $id)
     {
-        //echo 'Id: ' . $id;
-
-        if (isset($_SESSION['books'])) {
-            $books = $_SESSION['books'];
-        } else {
-            $books = [];
-        }
-        foreach ($books as $book) {
-            if ($book->getid() == $id) {
-                //$book = $bookO;
-                include_once 'html/book.html';
-                break;
-            }// else { echo $id . "Book not found"; }
-        }
+        $book = BookRepository::returnById($id);
+        include_once 'html/book.html';
 
     }
 
     public static function delete()
     {
         $id = $_POST["id"];
-        $books = $_SESSION['books'];
-        foreach ($books as $index => $book) {
-            if ($book->getId() == $id) {
-                echo "Found";
-                // Remove the object at this index
-                unset($_SESSION['books'][$index]);
-                BookController::index();
-                break; // Exit loop since we found what we needed
-            }
-        }
+        BookRepository::removeById($id);
+        BookController::index();
     }
 
     public static function showAuthors()
