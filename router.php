@@ -4,7 +4,7 @@ class Router
 {
 
     //Shouldn't an empty get from index go to the main menu?
-    //Next another route to menu ['get','menu',[BookController::class,'menu']],
+    //Next a route to form ['get','form',[BookController::class,'form']],
     private array $routes = [
         ['get', 'book/:id', [BookController::class, 'show']],
         ['get', 'index', [BookController::class, 'index']],
