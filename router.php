@@ -3,8 +3,7 @@
 class Router
 {
 
-    //Shouldn't an empty get from index go to the main menu?
-    //Next a route to add ['post','add',[BookController::class,'add']],
+    //Array of all paths
     private array $routes = [
         ['get', 'book/:id', [BookController::class, 'show']],
         ['get', 'index', [BookController::class, 'index']],
@@ -21,7 +20,6 @@ class Router
 
     public function __construct()
     {
-        //$pathInfo = isset($_SERVER['PATH_INFO']) ? $_SERVER['PATH_INFO'] : '';
         if (isset($_SERVER['PATH_INFO'])) {
             $pathInfo = $_SERVER['PATH_INFO'];
         } else {
@@ -38,9 +36,8 @@ class Router
             if ($method === $routeMethod && $this->matchRoute($routePath)) {
                 if (isset($this->pathPieces[1])) {
                     $string = $this->pathPieces[1];
-                    preg_match('/\d+$/', $string, $matches); // Matches digits at the end of the string
+                    preg_match('/\d+$/', $string, $matches);
                     $numbersAtEnd = $matches[0];
-                    //$piece = $this->pathPieces[1]; //$lastLetter = substr($string, -1);
                     $id = (int) $numbersAtEnd;
                     $routeAction($id);
                     return;

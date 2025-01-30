@@ -8,7 +8,7 @@ class Book
     private $author;
     private string $isbn;
     private string $publisher;
-    #public DateTimeImmutable $publicationDate;
+
     private $publicationDate;
     private int $pageCount;
 

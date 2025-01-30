@@ -8,24 +8,20 @@
 class BookRepository
 {
 
-    //Replace use of with $_SESSION['books'];
-    //
-    private array $books = [];
-
-    //Add the given book object to the array
+    //Add the given book object to the session array
     public static function add(object $newBook)
     {
-        //$this->books[] = $newBook;
         $_SESSION['books'][] = $newBook;
     }
 
+    //Returns an array copied from the session array
     public static function getAll()
     {
         $books = $_SESSION['books'];
         return $books;
     }
 
-    //Filters the books array by author id and returns filtered array
+    //Filters the books session array by author id and returns filtered array
     public static function filterById(int $chosenAuthorId)
     {
         $books = $_SESSION['books'];
@@ -46,7 +42,7 @@ class BookRepository
         }
     }
 
-    //Removes a book with a certain index make static
+    //Removes a book with a certain id from the session array
     public static function removeById(int $id)
     {
         $books = $_SESSION['books'];
@@ -54,20 +50,21 @@ class BookRepository
             if ($book->getId() === $id) {
                 // Remove the object at this index
                 unset($_SESSION['books'][$index]);
-                break; // Exit loop since we found what we needed
+                break;
             }
         }
     }
 
+    //Unused
     //Checks if a book exists at a certain index and returns bool
-    public function checkForId(int $id)
-    {
-        foreach ($this->books as $book) {
-            if ($book->getId() === $id) {
-                return true;
-            }
-        }
-        return false;
-    }
+    // public function checkForId(int $id)
+    // {
+    //     foreach ($this->books as $book) {
+    //         if ($book->getId() === $id) {
+    //             return true;
+    //         }
+    //     }
+    //     return false;
+    // }
 
 }

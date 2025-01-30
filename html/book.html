@@ -24,7 +24,7 @@
         <p><strong>Page Count:</strong>
             <?php echo $book->getPagecount(); ?>
         </p>
-    </div>
+    </div><!--Delete button that calls the path to the remove method with the id of the current $book object-->
     <form method="POST" action='../book' onsubmit="return confirm('Do you really want to delete this book?')">
         <input type="hidden" name="id" value="<?php echo $book->getId(); ?>">
         <input type="submit" value="Delete">

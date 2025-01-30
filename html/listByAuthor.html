@@ -6,13 +6,13 @@
 
 <body>
     <h1>Library Hall</h1>
-    <p><b>Book list</b></p>
+    <p><b>Book list by author</b></p>
     <ul>
         <?php if (empty($books)): ?>
         <li>There are no books in the array.</li>
         <?php else: ?>
         <?php foreach ($books as $key => $book): ?>
-        <li>
+        <li><!--Comming from the author links the path of this page was different and I had to change this link by adding '../'-->
             <a href="../book/id=<?php echo $book->getId(); ?>">
                 Id:
                 <?php echo $book->getId(); ?>:
