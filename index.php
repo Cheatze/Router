@@ -11,6 +11,7 @@ session_start();
 if (!isset($_SESSION['books'])) {
     $_SESSION['authors'] = [];
     $_SESSION['books'] = []; // Initialize as an empty array
+    $_SESSION['id'] = 1;
     include_once 'TestData.php';
 }
 
@@ -20,4 +21,4 @@ if (!isset($_SESSION['books'])) {
 $router = new Router();
 
 $router->processRoute();
-//session_destroy(); // empty session for testing
+session_destroy(); // empty session for testing

@@ -15,12 +15,13 @@ foreach ($authors as $author) {
         $publisher = "Publisher $i";
         $publicationDate = new DateTimeImmutable('2023-01-01');
         $pageCount = rand(100, 500);
-
+        $id = $_SESSION['id'];
         // Create a new Book instance
-        $newBook = new Book($bookTitle, $author, $isbn, $publisher, $publicationDate, $pageCount);
+        $newBook = new Book($bookTitle, $author, $isbn, $publisher, $publicationDate, $pageCount, $id);
 
         // Add the Book instance to the books array
         //$game->addForTest($newBook);
         $_SESSION['books'][] = $newBook;
+        $_SESSION['id'] += 1;
     }
 }

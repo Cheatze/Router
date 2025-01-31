@@ -90,9 +90,10 @@ class BookController
         $publisher = $_POST['publisher'];
         $publicationDate = $_POST['publicationDate'];
         $pageCount = $_POST['pageCount'];
+        $id = $_SESSION['id'];
 
         // Create a new Book object, somehow always gives id of 1
-        $newBook = new Book($bookTitle, $author, $isbn, $publisher, $publicationDate, $pageCount);
+        $newBook = new Book($bookTitle, $author, $isbn, $publisher, $publicationDate, $pageCount, $id);
 
         BookRepository::add($newBook);
         BookController::index();

@@ -12,9 +12,10 @@ class Book
     private $publicationDate;
     private int $pageCount;
 
-    public function __construct(string $title, $author, string $isbn, string $publsiher, $publicationDate, int $pageCount)
+    public function __construct(string $title, $author, string $isbn, string $publsiher, $publicationDate, int $pageCount, int $id)
     {
-        $this->id = ++static::$count;
+        //$this->id = ++static::$count;
+        $this->id = $id;
         $this->title = $title;
         $this->author = $author;
         $this->isbn = $isbn;

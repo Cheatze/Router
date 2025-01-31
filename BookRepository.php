@@ -12,6 +12,7 @@ class BookRepository
     public static function add(object $newBook)
     {
         $_SESSION['books'][] = $newBook;
+        $_SESSION['id'] += 1;
     }
 
     //Returns an array copied from the session array
