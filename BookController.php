@@ -81,7 +81,7 @@ class BookController
         $bookTitle = $_POST['title'];
         //$author = $_POST['author'];
         foreach ($_SESSION['authors'] as $auth) {
-            if ($auth->getName() == $_POST['author']) {
+            if ($auth->getId() == $_POST['author']) {
                 $author = $auth;
                 break;
             }

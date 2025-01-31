@@ -16,7 +16,7 @@
                             
                             if (isset($_SESSION['authors'])) {
                                 foreach ($_SESSION['authors'] as $author) {
-                                    echo '<option value="' . htmlspecialchars($author->getName()) . '">' . htmlspecialchars($author->getName()) . '</option>';
+                                    echo '<option value="' . htmlspecialchars($author->getId()) . '">' . htmlspecialchars($author->getName()) . '</option>';
                                 }
                             }
                             ?>
